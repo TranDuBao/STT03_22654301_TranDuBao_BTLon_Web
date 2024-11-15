@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên Hệ - Mỹ Phẩm OHui</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <style>
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 50px;
+            margin-bottom: 20px;
+        }
+        .container h2 {
+            margin-bottom: 30px;
+            margin-left: -50px;
+        }
+        .form-control {
+            border: 1px solid #000;
+        }
+        .btn-s {
+            color: white;
+            width: 100%;
+        }
+        .contact-info div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .contact-info i {
+            font-size: 24px;
+            margin-top: -14px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Thanh điều hướng tương tự -->
+    <nav class="navbar navbar-expand-lg navbar-dark nav-background">
+        <a class="navbar-brand" href="../html/index.html"><img class="img-logo" src="../img/logo-Ohui.png" alt="Logo"></a>
+        <a class="navbar-brand brand-title" href="../html/index.html">Mỹ Phẩm OHui</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item li-list"><a class="nav-link text-white" href="../html/index.html">Trang Chủ</a></li>
+                <li class="nav-item li-list"><a class="nav-link text-white" href="../html/sanpham.html">Sản Phẩm</a></li>
+                <li class="nav-item li-list"><a class="nav-link text-white" href="../html/contact.html">Liên Hệ</a></li>
+                <li class="nav-item li-list"><a class="nav-link text-white" href="../html/sitemap.html">SiteMap</a></li>
+                <li class="nav-item li-list" id="login-item"><a class="nav-link text-white" href="../html/login.html">Đăng Nhập</a></li>
+                <li class="nav-item li-list" id="register-item"><a class="nav-link text-white" href="../html/register.html">Đăng Ký</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <div class="hero-section jumbotron text-center text-danger img-header">
+        <h1>Chào Mừng Đến Mỹ Phẩm OHui</h1>
+        <p>Khám phá những sản phẩm chất lượng cao dành cho làn da của bạn!</p>
+    </div>
+
+    <!-- Form liên hệ -->
+    <div class="container">
+        <h2 class="text-center">Thông Tin Liên Hệ</h2>
+        <form>
+            <div class="row">
+                <div class="col-md-8">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="name" placeholder="Name" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="email" placeholder="Email" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="subject" placeholder="Subject" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="telephone" placeholder="Telephone" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" id="message" placeholder="Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-danger btn-s">Send Message</button>
+                    </form>
+                </div>                
+                <div class="col-md-4 contact-side">
+                    <div class="contact-info text-danger">
+                        <div>
+                            <i class="bi bi-geo-alt-fill icon-contact"></i>
+                            <p>12 Nguyễn Văn Bảo, Phường 4, Gò Vấp</p>
+                        </div>
+                        <div>
+                            <i class="bi bi-telephone-fill"></i>
+                            <p>+84 325 176 093</p>
+                        </div>
+                        <div>
+                            <i class="bi bi-envelope"></i>
+                            <p>dubao1005@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.8581690910382!2d106.68427047408804!3d10.822164158350363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174deb3ef536f31%3A0x8b7bb8b7c956157b!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2hp4buHcCBUUC5IQ00!5e0!3m2!1svi!2s!4v1729870127009!5m2!1svi!2s" 
+            width="100%" 
+            height="450" 
+            style="border:0; margin-top: 30px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        </div>
+    </div>
+    <div class="info_section layout_padding2-top col-12 col-sm-11">
+        <div class="social_container">
+            <div class="social_box">
+                <a href="https://www.facebook.com/" class="facebook abc">
+                    <i class="bi bi-facebook"></i>
+                </a>
+                <a href="https://x.com/?lang=vi" class="twitter abc">
+                    <i class="bi bi-twitter"></i>
+                </a>
+                <a href="https://www.instagram.com/" class="instagram abc">
+                    <i class="bi bi-instagram"></i>
+                </a>
+                <a href="https://www.youtube.com/" class="youtube abc">
+                    <i class="bi bi-youtube"></i>
+                </a>
+            </div>
+        </div>
+        <div class="info_container ">
+            <div class="container">
+                <div class="row ">
+                    <div style="text-align: justify;" class="col-md-6 col-lg-3 ">
+                        <h4 class="h4-text">Tin Tức</h4>
+                        <p>OHUI là dòng mỹ phẩm hướng đến đối tượng khách hàng từ 30 đến 60 tuổi với làn da suy yếu do tuổi tác. Thế nên, những người ở độ tuổi đó nếu muốn chăm sóc da thì hoàn toàn có thể sử dụng.</p>
+                    </div>
+                    <div class="col-md-6 col-lg-3 ">
+                        <div class="info_form ">
+                            <h4 class="h4-text">Đăng Ký</h4>
+                            <form action="#">
+                                <input type="email " placeholder="Nhập địa chỉ email" class="form-control">
+                                <button class="btn btn-outline-danger btn-check">Gửi</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div style="text-align: justify;" class="col-md-6 col-lg-3 ">
+                        <h4 class="h4-text">Trợ Giúp</h4>
+                        <p>Giúp sáng da, cung cấp ẩm làm đẹp cho mọi loại da, ngăn ngừa mụn và cải thiện màu da </p>
+                    </div>
+                    <div class="col-md-6 col-lg-3 ">
+                        <h4 class="h4-text"> Liên Hệ</h4>
+                        <div class="info_link-box ">
+                            <a href="contact.html" class="contact-text">
+                                <i class="bi bi-geo-alt-fill icon-contact"></i>
+                                <span>12 Nguyễn Văn Bảo, Phường 4, Gò Vấp</span>
+                            </a>
+                            <a href="contact.html" class="contact-text">
+                                <i class="bi bi-telephone-fill"></i>
+                                <span>0325.176.093</span>
+                            </a>
+                            <a href="contact.html" class="contact-text">
+                                <i class="bi bi-envelope"></i>
+                                <span> dubao1005@gmail.com</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contact-a footer-bottum">
+        <div class="conact-all">
+        </div>
+    </div>
+    <footer class="footer footer-background text-white text-center py-4">
+        <div class="text-footer">
+            <span>© 2024 OHui Shop - Bản quyền thuộc về Trần Dũ Bảo.</span>
+        </div>
+    </footer>
+
+</body>
+</html>

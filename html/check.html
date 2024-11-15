@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Toán</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <style>
+        body {
+            background-image: url(../img/anhdong1.gif);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .wapper {
+            max-width: 960px;
+            margin: auto;
+            background-image: url(../img/anhnen_body.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        .sum {
+            border: 1px solid #999;
+            width: 40%;
+            padding: 30px 30px;
+            margin-left: 20%;
+            margin-top: 40px;
+            background-color: #F4C2C2;
+            border-radius: 4px;
+            color: #fff;
+        }
+        .thanhtoan {
+            margin-left: 20%;
+        }
+        .logo-check {
+            width: 100px;
+            border-radius: 50%;
+            margin-left: 40%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wapper mt-3 col-12 col-sm-10 col-md-8">
+
+        <div class="container">
+            <h2 class="text-center text-danger">Thông Tin Thanh Toán</h2>
+
+            <!-- Thông tin giỏ hàng -->
+            <div id="cart-summary">
+                <h4 class="text-secondary">Giỏ Hàng Của Bạn</h4>
+                <table class="table table-striped text-white">
+                    <thead>
+                        <tr>
+                            <th>Tên sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Giá</th>
+                            <th>Thành tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-items-summary">
+                    </tbody>
+                </table>
+                <h5 class="sum">Tổng cộng: <span id="total-amount">0</span> VND</h5>
+            </div>
+
+            <!-- Chọn phương thức thanh toán -->
+            <div class="mt-4 thanhtoan">
+                <h4 class="text-secondary">Chọn Phương Thức Thanh Toán</h4>
+                <form id="payment-form">
+                    <div class="form-check text-white">
+                        <input class="form-check-input" type="radio" name="paymentMethod" id="cash" value="cash" checked>
+                        <label class="form-check-label" for="cash">
+                            Thanh Toán Bằng Tiền Mặt
+                        </label>
+                    </div>
+                    <div class="form-check text-white">
+                        <input class="form-check-input" type="radio" name="paymentMethod" id="bankTransfer" value="bankTransfer">
+                        <label class="form-check-label" for="bankTransfer">
+                            Thanh Toán Chuyển Khoản
+                        </label>
+                    </div>
+                    <div class="mt-4">
+                        <button type="submit" class="btn btn-danger">Xác Nhận Thanh Toán</button>
+                    </div>
+                    <br>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Hiển thị giỏ hàng từ localStorage
+            var cart = JSON.parse(localStorage.getItem('cart')) || [];
+            var totalPrice = 0;
+            var cartItemsSummary = $('#cart-items-summary');
+
+            cart.forEach(function (item) {
+                var totalItemPrice = item.price * item.quantity;
+                totalPrice += totalItemPrice;
+                cartItemsSummary.append(`
+                    <tr>
+                        <td>${item.name}</td>
+                        <td>${item.quantity}</td>
+                        <td>${item.price} VND</td>
+                        <td>${totalItemPrice} VND</td>
+                    </tr>
+                `);
+            });
+
+            $('#total-amount').text(totalPrice);
+
+            // Xử lý sự kiện submit form thanh toán
+            $('#payment-form').submit(function (event) {
+                event.preventDefault();
+
+                var paymentMethod = $('input[name="paymentMethod"]:checked').val();
+                var paymentMessage = '';
+
+                if (paymentMethod === 'cash') {
+                    paymentMessage = 'Bạn đã chọn thanh toán bằng tiền mặt khi nhận hàng.';
+                } else if (paymentMethod === 'bankTransfer') {
+                    paymentMessage = 'Bạn đã chọn thanh toán bằng chuyển khoản. Vui lòng chuyển khoản đến tài khoản ngân hàng Viettinbank với số tài khoản : 109876782030.';
+                }
+
+                alert(paymentMessage + '\nTổng số tiền: ' + totalPrice + ' VND');
+                localStorage.removeItem('cart'); // Xóa giỏ hàng sau khi thanh toán
+                window.location.href = '../html/index.html'; // Chuyển về trang chủ sau khi thanh toán
+            });
+        });
+    </script>
+</body>
+</html>

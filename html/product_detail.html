@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Sản Phẩm</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <style>
+        .concat {
+            margin-bottom: 50px;
+        }
+        .img-border {
+            border-radius: 8px;
+        }
+        .space {
+            margin-right: 5px;
+        }
+        .product-btn {
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 0 20px;
+        }
+        .active-product {
+            background-color: #f31e89;
+            color: white;
+            border-color: #f31e89;
+            background-color: #d8849a;
+            font-size: 20px;
+        }
+        .nut_cach {
+            margin-bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.5);
+            min-height: 150px;
+            width: 400px;
+            border-radius: 8px;
+        }
+
+        .btn-outline-secondary:hover {
+            background-color: #d8849a;
+            color: white;
+        }
+        .xemthem {
+            padding: 15px;
+            color: #6f514a;
+        }
+        .btn-a {
+            background-color: #dabbac;
+        }
+    </style>
+</head>
+<body>
+    <!-- Thanh điều hướng -->
+    <nav class="navbar navbar-expand-lg navbar-dark nav-background">
+        <a class="navbar-brand" href="../html/index.html"><img class="img-logo" src="../img/logo-Ohui.png" alt="Logo"></a>
+        <a class="navbar-brand brand-title" href="../html/index.html">Mỹ Phẩm OHui</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item li-list"><a class="nav-link text-white" href="../html/index.html">Trang Chủ</a></li>
+                <li class="nav-item li-list"><a class="nav-link text-white" href="../html/sanpham.html">Sản Phẩm</a></li>
+                <li class="nav-item li-list"><a class="nav-link text-white" href="../html/contact.html">Liên Hệ</a></li>
+                <li class="nav-item li-list"><a class="nav-link text-white" href="../html/sitemap.html">SiteMap</a></li>
+                <li class="nav-item li-list">
+                    <a class="nav-link text-white" href="#" data-toggle="modal" data-target="#cartModal">Giỏ Hàng (<span id="cart-count">0</span>)</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <div class="hero-section jumbotron text-center text-danger img-header">
+        <h1>Chào Mừng Đến Mỹ Phẩm OHui</h1>
+        <p>Khám phá những sản phẩm chất lượng cao dành cho làn da của bạn!</p>
+    </div>
+
+    <!-- Chi tiết sản phẩm -->
+    <div class="container mt-5 concat">
+        <div class="row">
+            
+            <div class="col-md-6 text-center">
+                <img id="product-image" src="" alt="Ảnh sản phẩm" class="img-fluid img-border">
+            </div>
+            <div class="col-md-6 product">
+                <h2 id="product-name"></h2>
+                <h3 id="product-price" class="text-danger"></h3>
+                <p id="product-description"></p>
+                <button class="btn btn-danger add-to-cart cart-btn" id="add-to-cart-btn">Thêm vào giỏ hàng</button>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Thanh điều hướng sản phẩm -->
+    <div class="product-nav container text-center mt-4 nut_cach">
+        <h3 class="xemthem">Xem thêm sản phẩm</h3>
+        <div class="btn-group" role="group" aria-label="Product Navigation">
+            <button id="prev-btn" class="btn btn-outline-danger btn-a">&lt;</button>
+            <div id="product-nav-links" class="d-inline-flex"></div>
+            <button id="next-btn" class="btn btn-outline-danger btn-a">&gt;</button>
+        </div>
+    </div>
+
+    <!-- gio hang -->
+    <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Giỏ Hàng</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Tên sản phẩm</th>
+                                <th>Giá</th>
+                                <th>Số lượng</th>
+                                <th>Thành tiền</th>
+                                <th>Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cart-items">
+                        </tbody>
+                    </table>
+                    <h5>Tổng cộng: <span id="total-price">0</span> VND</h5>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-danger" id="checkout-btn">Thanh Toán</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  footer  -->
+    <div class="contact-a">
+        <div class="conact-all">
+        </div>
+    </div>
+    <footer class="footer footer-background text-white text-center py-4">
+        <div class="text-footer">
+            <span>© 2024 OHui Shop - Bản quyền thuộc về Trần Dũ Bảo.</span>
+        </div>
+    </footer>
+    <script>
+        $(document).ready(function () {
+            var urlParams = new URLSearchParams(window.location.search);
+            var productId = urlParams.get('id');
+            var productData = [
+                { id: 1, name: "Sữa rửa mặt Ohui Miracle Moisture", price: "637.500đ", 
+                description: "Sữa Rửa Mặt Ohui Miracle Moisture Cleansing Foam 200ml Rửa mặt là bước rất quan trọng trong quy trình dưỡng da. Rửa mặt đúng sẽ giúp làm bụi bẩn trên da, loại bỏ những tế bào chết. Giúp làm sạch và cung cấp độ ẩm cho da, giúp các bước dưỡng tiếp theo hiệu quả hơn.", 
+                image: "../img/ohui1.png"},
+
+                { id: 2, name: "Sữa Rửa Mặt Ohui Miracle Toning Jelly", price: "527.000đ", 
+                description: "Sữa Rửa Mặt Oven Miracle Toning Jelly Cleanser Ohui 160ml Miracle Toning Jelly Cleanser ngoài việc sở hữu công thức mềm sừng da và làm sáng của Glow Toning Complex™ còn bổ sung hoạt chất có chiết xuất từ dầu dừa tự nhiên nhằm tăng nhanh quá trình tạo bọt, dễ dàng làm sạch bụi bẩn, hòa tan lớp trang điểm, kem chống nắng hay các tạp chất có gốc dầu mà vẫn để lại cảm giác tươi mát, ẩm mịn trên da. Và nhớ nhé nàng ơi, tạo bọt mịn trên tay sau đó mới đưa lên da massage làm sạch là quy tắc bất thành văn khi sử dụng sữa rửa mặt. Điều này sẽ khiến các cặn bẩn trên da được làm sạch hơn, ngăn ngừa việc đọng lại các hoạt chất chưa được hòa tan gây nhờn rít hay thậm chí là gây mụn sau này đó!", 
+                image: "../img/ohui2.png"},
+
+                { id: 3, name: "Ohui Extreme Bright Cleansing Foam", price: "765.000đ", 
+                description: "Sữa rửa mặt làm trắng da OHUI dạng bọt vitamin được chế tác từ các viên nén vitamin, giúp lấy đi bụi bẩn và sừng già chết tích tụ lâu ngày làm da tối màu, đem lại làn da trắng sạch và nếp da mềm mại.Nhờ 2 thành phần chính:Snow Vitamin: thành phần dưỡng trắng da được chiết suất cô đặc giúp làm mờ nhanh vết sạm nám.Hoa thủy tiên: được mệnh danh là (Tuyết trung hoa) sẽ đem đến hiệu quả làm dịu da tuyệt vời.Sản phẩm mới OHUI Extreme White Snow Vitamin - chứa thành phần Vitamin nấm tuyết ™ hàm lượng cao, hấp thụ nhanh chóng, dưỡng trắng, trị nám và ngăn lão hóa, giúp bạn tìm lại làn da trắng sáng trẻ trung rạng ngời. ", 
+                image: "../img/ohui3.png" },
+        
+                { id: 4, name: "Bộ Dưỡng Da The Whoo Gongjinhyang Firming 2pcs Set",
+                price: "2.550.000đ", 
+                description: "Dưỡng trắng da.Bổ sung độ ẩm cho da, thanh lọc độc tố giúp da luôn khỏe mạnh, tươi sáng rạng rỡ. Tăng cường sản sinh collagen giúp da có được độ đàn hồi, săn chắc khỏe mạnh hơn. Ngăn ngừa lão hóa, cải thiện nếp nhăn và độ đàn hồi, hỗ trợ bổ sung dưỡng chất cho làn da rạng ngời", 
+                image: "../img/ohui4.png" },
+
+                { id: 5, name: "Bộ dưỡng da Đông y Gongjinhyang 3PCS Special Set", price: "3.505.000đ", 
+                description: "Công dụng của Bộ dưỡng da Đông y Gongjinhyang 3PCS NY24 Special Set Bổ sung độ ẩm cho da, thanh lọc độc tố giúp da luôn khỏe mạnh, tươi sáng rạng rỡ.Tăng cường sản sinh collagen giúp da có được độ đàn hồi, săn chắc khỏe mạnh hơn. Tăng khả năng bảo vệ da, chống lão hóa da và làm giảm nếp nhăn, vết đốm da, trả lại làn da mịn màng tươi trẻ sau khi sử dụng. ", 
+                image: "../img/ohui5.png" },
+
+                { id: 6, name: "Set Sữa Rửa Mặt Dưỡng Trắng Ohui Extreme Bright Foam 160ml + 100ml", price: "765.000đ", 
+                description: "Sản phẩm vẫn giữ được nét thiết kế của OHUI đó là sự cao cấp, bắt mắt. Màu trắng tinh khôi, đường vân nắp lấp lánh, cảm giác khi cầm rất chắc chắn và mát tay. Miệng chai nhỏ, rất tiện lợi khi lấy một lượng sữa rửa mặt vừa đủ ra sử dụng. Sữa rửa mặt dễ dàng tạo bọt nhỏ mịn, khả năng tạo bọt nhanh và nhiều. Cảm giác rất thoải mái, dễ chịu khi massage trên mặt. Tan nhẹ khi rửa lại với nước. ", 
+                image: "../img/ohui6.png" },
+                
+                { id: 7, name: "Sữa Chống Nắng Dịu Da CNP Mild Calming Sun Lotion SPF50+/PA+", price: "586.500đ", 
+                description: "Công dụng chính: Ngăn chặn tia UVA/UVB gây hại da, mang lại làn da khỏe mạnh, chống nắng hoàn hảo. Loại da phù hợp: Mọi loại da, kể cả da nhạy cảm. Thành phần chính: Chiết xuất hoa Lily trắng, dầu trái cây Bergamot, dầu vỏ quýt. Sữa chống nắng dịu da vật lý CNP Laboratory Mild Calming Sun Lotion SPF50+/PA++++ được chiết xuất từ những thành phần thiên nhiên, không chứa paraben, chất gây dị ứng. Sản phẩm được hơn 50 bác sĩ da liễu hàng đầu Hàn Quốc chứng nhận an toàn cho làn da nhạy cảm. Đặc biệt được sản xuất với quy trình nghiêm ngặt, đảm bảo giữ trọn từng dưỡng chất trong thành phần, mang đến giải pháp bảo vệ da hoàn hảo nhất. ", 
+                image: "../img/ohui7.png" },
+
+                { id: 8, name: "Set Kem chống nắng dạng thỏi Su:m37 Sun-Away Velvet Sun Stick SPF50+/PA+", price: "637.500đ", 
+                description: "Set Kem chống nắng dạng thỏi Su:m37 Sun-away Velvet Sun Stick SPF50+/PA++++ Su:m37 Sun-away là loại kem chống nắng đa năng có khả năng dưỡng trắng. Nên bạn có thể được sử dụng như bước kem lót dưỡng trước khi trang điểm. Sản phẩm lành tính với chiết xuất thực vật là chủ yếu vừa bảo vệ, vừa dưỡng trắng da từ sâu bên trong. Chống nắng dạng thỏi cầm tay để lại finish mịn như nhung, ôm lấy da kể cả những vùng góc cạnh như cằm, cánh mũi và tai, giúp hiệu chỉnh kết cấu da mịn màng và ráo thoáng, không vón cục kể cả khi thoa nhiều lớp.", 
+                image: "../img/ohui8.png" },
+
+                { id: 9, name: "Kem chống nắng Whoo Anti - Wrinkle UV Protective Cream SPF50+,PA+", price: "1.147.500đ", 
+                description: "Kem chống nắng Whoo Vàng có chỉ số chống nắng cao, thẩm thấu đến phần thân bì của da, ngăn chặn UVA, nguyên nhân gây lão hóa. Thành phần Cống thần đơn kết hợp với công nghệ tiên tiến của LG cho hiệu quả chống lão hóa giai đoạn đầu tối ưu bằng việc tổng hợp collagen, lấp đầy dưỡng chất cho làn da. Khả năng chống nước và mồ hôi, không gây bết dính, duy trì sắc da khỏe mạnh và căng tràn sinh khí suốt cả ngày", 
+                image: "../img/ohui9.png" },
+                
+            ];
+            var product = productData.find(p => p.id == productId);
+            
+            if (product) {
+                $('#product-name').text(product.name);
+                $('#product-price').text(product.price + " VND");
+                $('#product-description').text(product.description);
+                $('#product-image').attr('src', product.image);
+                $('#add-to-cart-btn').data('id', product.id);
+                $('#add-to-cart-btn').data('name', product.name);
+                $('#add-to-cart-btn').data('price', parseInt(product.price));
+            } else {
+                alert("Sản phẩm không tồn tại.");
+            }
+            var cart = [];
+            var totalPrice = 0;
+
+            $(document).on('click', '#add-to-cart-btn', function () {
+                var productId = $(this).data('id');
+                var productName = $(this).data('name');
+                var productPrice = $(this).data('price');
+
+                var existingProduct = cart.find(product => product.id === productId);
+
+                if (existingProduct) {
+                    existingProduct.quantity += 1;
+                } else {
+                    cart.push({ id: productId, name: productName, price: productPrice, quantity: 1 });
+                }
+
+                totalPrice += productPrice;
+                $('#cart-count').text(cart.length);
+                alert('Sản phẩm đã được thêm vào giỏ hàng!');
+            });
+
+            $('#cartModal').on('show.bs.modal', function () {
+                var cartItems = $('#cart-items');
+                cartItems.empty();
+                cart.forEach(function (item, index) {
+                    var totalItemPrice = item.price * item.quantity;
+                    cartItems.append(`
+                        <tr>
+                            <td>${item.name}</td>
+                            <td>${item.price} VND</td>
+                            <td><input type="number" class="form-control quantity-input" data-index="${index}" value="${item.quantity}" min="1"></td>
+                            <td>${totalItemPrice} VND</td>
+                            <td><button class="btn btn-danger btn-sm remove-item" data-index="${index}">Xóa</button></td>
+                        </tr>
+                    `);
+                });
+                $('#total-price').text(totalPrice);
+            });
+
+            $(document).on('change', '.quantity-input', function () {
+                var index = $(this).data('index');
+                var newQuantity = parseInt($(this).val());
+                var item = cart[index];
+
+                if (newQuantity <= 0) {
+                    alert('Số lượng không hợp lệ.');
+                    return;
+                }
+                totalPrice -= item.price * item.quantity;
+                item.quantity = newQuantity;
+                totalPrice += item.price * item.quantity;
+                $('#total-price').text(totalPrice);
+            });
+
+            $(document).on('click', '.remove-item', function () {
+                var index = $(this).data('index');
+                var item = cart[index];
+                totalPrice -= item.price * item.quantity;
+                cart.splice(index, 1);
+                $('#cart-count').text(cart.length);
+                $('#total-price').text(totalPrice);
+                $(this).closest('tr').remove();
+            });
+
+            $('#checkout-btn').click(function () {
+                if (cart.length === 0) {
+                    alert('Giỏ hàng của bạn đang trống.');
+                } else {
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    window.location.href = '../html/check.html';
+                }
+            });
+
+            // liên kết sản phẩm
+            productData.forEach(function (product) {
+                $('#product-nav-links').append(
+                    `<a href="?id=${product.id}" class="btn btn-outline-danger">${product.id}</a>`
+                );
+            });
+           
+
+            $(document).ready(function () {
+                const productsPerPage = 5;
+                let currentPage = 0;
+                const totalPages = Math.ceil(productData.length / productsPerPage);
+                const urlParams = new URLSearchParams(window.location.search);
+                const currentProductId = parseInt(urlParams.get('id'), 10);
+
+                function renderProductLinks() {
+                    $('#product-nav-links').empty();
+
+                    const start = currentPage * productsPerPage;
+                    const end = start + productsPerPage;
+                    const productsToShow = productData.slice(start, end);
+
+                    productsToShow.forEach(product => {
+                        const isActive = product.id === currentProductId ? 'active-product' : '';
+                        $('#product-nav-links').append(
+                            `<a href="?id=${product.id}" class="btn btn-outline-danger mx-1 ${isActive}">${product.id}</a>`
+                        );
+                    });
+
+                    $('#prev-btn').prop('disabled', currentPage === 0);
+                    $('#next-btn').prop('disabled', currentPage >= totalPages - 1);
+                }
+
+                $('#prev-btn').click(function () {
+                    if (currentPage > 0) {
+                        currentPage--;
+                        renderProductLinks();
+                    }
+                });
+
+                $('#next-btn').click(function () {
+                    if (currentPage < totalPages - 1) {
+                        currentPage++;
+                        renderProductLinks();
+                    }
+                });
+
+                renderProductLinks();
+            });
+
+
+        });  
+    </script> 
+</body>
+</html>

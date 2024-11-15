@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        body {
+            background-image: url(../img/anhnen_dki_dn.avif);
+        }
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .wapper {
+            max-width: 580px;
+            margin: auto;
+            border: 1px solid #ccc;
+            padding: 0 20px 50px 20px;
+            background-image: url(../img/anhdong1.gif);
+            background-size: cover;
+            border-radius: 8px;
+        }
+        .logo-login {
+            width: 100px;
+            border-radius: 50%;
+            margin-left: 190px;
+            margin-bottom: 20px;
+        }
+        .input-icon .form-control {
+            padding-left: 30px;
+        }
+        .input-icon {
+            position: relative;
+        }
+        .input-icon i {
+            position: absolute;
+            top: 83%;
+            left: 10px;
+            transform: translateY(-83%);
+            color: #888;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wapper mt-5">
+        <div class="container mt-5">
+            <a href="../html/index.html">
+                <img class="logo-login" src="../img/logo-Ohui.png" alt="">
+            </a>
+            <h2>Đăng Nhập</h2>
+            <form id="login-form">
+                <div class="form-group input-icon">
+                    <i class="bi bi-person-fill"></i>
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" required placeholder="Nhập email của bạn">
+                </div>
+                <div class="form-group input-icon">
+                    <i class="bi bi-person-fill-lock"></i>
+                    <label for="password">Mật khẩu:</label>
+                    <input type="password" class="form-control" id="password" required placeholder="Nhập mật khẩu">
+                </div>
+                <button type="submit" class="btn btn-danger">Đăng Nhập</button>
+                
+                <a style="margin-left: 260px;" href="../html/doipass.html">Quên mật khẩu?</a>
+            </form>
+            <br>
+            <h5>Nếu bạn chưa có tài khoản</h5>
+            <button type="submit" class="btn btn-danger"><a href="../html/register.html" class="text-white">Đăng ký</a></button>
+            <div class="text-center">
+                <a class="text-dark" href="https://www.facebook.com/"><i class="bi bi-facebook icon-web"></i>Facebook</a>
+                <a class="text-dark" href="https://www.google.com.vn/"><i class="bi bi-google icon-web"></i>Google</a>
+                <a class="text-dark" href="https://www.instagram.com/"><i class="bi bi-instagram icon-web"></i>Instagram</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $('#login-form').submit(function (e) {
+            e.preventDefault();
+
+            var email = $('#email').val();
+            var password = $('#password').val();
+
+            // Giả lập đăng nhập thành công
+            if (email === 'user@example.com' && password === 'password123') {
+                localStorage.setItem('loggedIn', 'true');
+                localStorage.setItem('userName', 'Người Dùng');
+                localStorage.setItem('email', email);
+                alert('Đăng nhập thành công!');
+                window.location.href = '../html/index.html';
+            } else {
+                alert('Thông tin đăng nhập không hợp lệ.');
+            }
+        });
+        $('#login-form').submit(function (e) {
+        e.preventDefault();
+
+        var email = $('#email').val();
+        var password = $('#password').val();
+
+        // Lấy thông tin đã đăng ký từ LocalStorage
+        var registeredEmail = localStorage.getItem('registeredEmail');
+        var registeredPassword = localStorage.getItem('registeredPassword');
+
+        // So sánh thông tin đăng nhập với thông tin đã đăng ký
+        if (email === registeredEmail && password === registeredPassword) {
+            localStorage.setItem('loggedIn', 'true');
+            localStorage.setItem('userName', 'Người Dùng');
+            localStorage.setItem('email', email);
+            alert('Đăng nhập thành công!');
+            window.location.href = '../html/index.html';  // Điều hướng tới trang chính
+        } else {
+            alert('Thông tin đăng nhập không hợp lệ.');
+        }
+    });
+    </script>
+</body>
+</html>

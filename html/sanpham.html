@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản Phẩm - Mỹ Phẩm OHui</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <!-- Thanh điều hướng -->
+    <nav class="navbar navbar-expand-lg navbar-dark  nav-background">
+        <a class="navbar-brand" href="../html/index.html"><img class="img-logo" src="../img/logo-Ohui.png" alt="Logo"></a>
+        <a class="navbar-brand brand-title" href="../html/index.html">Mỹ Phẩm OHui</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item li-list"><a class="nav-link text-white" href="../html/index.html">Trang Chủ</a></li>
+                <li class="nav-item li-list"><a class="nav-link text-white" href="../html/sanpham.html">Sản Phẩm</a></li>
+                <li class="nav-item li-list"><a class="nav-link text-white" href="../html/contact.html">Liên Hệ</a></li>
+                <li class="nav-item li-list"><a class="nav-link text-white" href="../html/sitemap.html">SiteMap</a></li>
+
+                <li class="nav-item li-list" id="login-item"><a class="nav-link text-white" href="../html/login.html">Đăng Nhập</a></li>
+                <li class="nav-item li-list" id="register-item"><a class="nav-link text-white" href="../html/register.html">Đăng Ký</a></li>
+                <li class="nav-item li-list d-none" id="logout-item"><a class="nav-link text-white" href="#" id="logout-btn">Đăng Xuất</a></li>
+                <li class="nav-item li-list d-none" id="change-password-item"><a class="nav-link text-white" href="../html/change_password.html">Đổi Mật Khẩu</a></li>
+                <li class="nav-item li-list"><a class="nav-link text-white" href="#" data-toggle="modal" data-target="#cartModal">Giỏ Hàng (<span id="cart-count">0</span>)</a></li>
+                <li class="nav-item li-list d-none" id="user-info"><span class="navbar-text"><span id="user-name"></span></span></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section jumbotron text-center img-header text-danger">
+        <form class="form-inline justify-content-center mt-4" id="search-form">
+            <input class="form-control mr-sm-2" type="search" placeholder="Tìm sản phẩm" aria-label="Tìm sản phẩm" id="search-input" style="width: 400px;">
+            <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Tìm</button>
+        </form>
+        <h1 class="display-4">Chào Mừng Đến Shop Mỹ Phẩm OHui</h1>
+        <p class="lead">Tìm những sản phẩm tốt nhất tại cửa hàng của chúng tôi!</p>
+    </div>
+
+    <!-- Sản Phẩm -->
+    <div class="container">
+        <h2 style="color: rgb(248, 133, 196); font-weight: bold; text-align: center; margin-top: 20px;" class="mb-4 text-outline">KEM DƯỠNG DA</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="card-img-top img-item" src="../img/ohui1.png" alt="Ohui">
+                    <div class="card-body">
+                        <h5 class="card-title">637.500đ</h5>
+                        <p class="card-text">Sữa rửa mặt Ohui Miracle Moisture Cleansing Foam</p>
+                        <button class="btn btn-danger add-to-cart" data-id="1" data-name="Sữa rửa mặt Ohui Miracle Moisture" data-price="637500">Thêm vào giỏ hàng</button>
+                        <button class="btn btn-info view-details" data-id="1">Xem Chi Tiết</button>
+                    </div>
+                </div>
+            </div>          
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="card-img-top img-item" src="../img/ohui2.png" alt="Ohui">
+                    <div class="card-body">
+                        <h5 class="card-title">527.000đ</h5>
+                        <p class="card-text">Sữa Rửa Mặt Ohui Miracle Toning Jelly Cleanser</p>
+                        <button class="btn btn-danger add-to-cart" data-id="2" data-name="Sữa Rửa Mặt Ohui Miracle Toning Jelly Cleanser" data-price="527000">Thêm vào giỏ hàng</button>
+                        <button class="btn btn-info view-details" data-id="2">Xem Chi Tiết</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="card-img-top img-item" src="../img/ohui3.png" alt="Ohui">
+                    <div class="card-body">
+                        <h5 class="card-title">765.000đ</h5>
+                        <p class="card-text">Sữa rửa mặt Ohui trắng da Extreme Bright Cleansing Foam.</p>
+                        <button class="btn btn-danger add-to-cart" data-id="3" data-name="Sữa rửa mặt Ohui trắng da Extreme Bright Cleansing Foam" data-price="765000">Thêm vào giỏ hàng</button>
+                        <button class="btn btn-info view-details" data-id="3">Xem Chi Tiết</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h2 style="color: rgb(248, 133, 196); font-weight: bold; text-align: center; margin-top: 20px;" class="mb-4 text-outline">SỬA RỬA MẶT</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="card-img-top img-item" src="../img/ohui4.png" alt="Sản phẩm 4">
+                    <div class="card-body">
+                        <h5 class="card-title">2.550.000đ</h5>
+                        <p class="card-text">Bộ Dưỡng Da The Whoo Gongjinhyang Firming 2pcs Set</p>
+                        <button class="btn btn-danger add-to-cart" data-id="4" data-name="Bộ Dưỡng Da The Whoo Gongjinhyang Firming 2pcs Set" data-price="2550000">Thêm vào giỏ hàng</button>
+                        <button class="btn btn-info view-details" data-id="4">Xem Chi Tiết</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="card-img-top img-item" src="../img/ohui5.png" alt="Sản phẩm 5">
+                    <div class="card-body">
+                        <h5 class="card-title">3.505.000đ</h5>
+                        <p class="card-text">Bộ dưỡng da Đông y Gongjinhyang 3PCS Special Set</p>
+                        <button class="btn btn-danger add-to-cart" data-id="5" data-name="Bộ dưỡng da Đông y Gongjinhyang 3PCS Special Set" data-price="3505000">Thêm vào giỏ hàng</button>
+                        <button class="btn btn-info view-details" data-id="5">Xem Chi Tiết</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="card-img-top img-item" src="../img/ohui6.png" alt="Sản phẩm 6">
+                    <div class="card-body">
+                        <h5 class="card-title">765.000đ </h5>
+                        <p class="card-text">Set Sữa Rửa Mặt Dưỡng Trắng Ohui Extreme Bright Foam 160ml + 100ml</p>
+                        <button class="btn btn-danger add-to-cart" data-id="6" data-name="Set Sữa Rửa Mặt Dưỡng Trắng Ohui Extreme Bright" data-price="765000">Thêm vào giỏ hàng</button>
+                        <button class="btn btn-info view-details" data-id="6">Xem Chi Tiết</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h2 style="color: rgb(248, 133, 196); font-weight: bold; text-align: center; margin-top: 20px;" class="mb-4 text-outline">KEM CHỐNG NẮNG</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="card-img-top img-item" src="../img/ohui7.png" alt="Sản phẩm 7">
+                    <div class="card-body">
+                        <h5 class="card-title">586.500đ </h5>
+                        <p class="card-text">Sữa Chống Nắng Dịu Da CNP Mild Calming Sun Lotion SPF50+/PA+</p>
+                        <button class="btn btn-danger add-to-cart" data-id="7" data-name="Sữa Chống Nắng Dịu Da CNP Mild Calming Sun Lotion" data-price="586500">Thêm vào giỏ hàng</button>
+                        <button class="btn btn-info view-details" data-id="7">Xem Chi Tiết</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="card-img-top img-item" src="../img/ohui8.png" alt="Sản phẩm 8">
+                    <div class="card-body">
+                        <h5 class="card-title">637.500đ </h5>
+                        <p class="card-text">Set Kem chống nắng dạng thỏi Su:m37 Sun-Away Velvet Sun Stick SPF50+/PA+</p>
+                        <button class="btn btn-danger add-to-cart" data-id="8" data-name="Set Kem chống nắng dạng thỏi Su:m37 Sun-Away Velvet Sun Stick" data-price="637500">Thêm vào giỏ hàng</button>
+                        <button class="btn btn-info view-details" data-id="8">Xem Chi Tiết</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="card-img-top img-item" src="../img/ohui9.png" alt="Sản phẩm 9">
+                    <div class="card-body">
+                        <h5 class="card-title">1.147.500đ</h5>
+                        <p class="card-text">Kem chống nắng Whoo Anti - Wrinkle UV Protective Cream SPF50+,PA+</p>
+                        <button class="btn btn-danger add-to-cart" data-id="9" data-name="Kem chống nắng Whoo Anti - Wrinkle UV Protective" data-price="1147500">Thêm vào giỏ hàng</button>
+                        <button class="btn btn-info view-details" data-id="9">Xem Chi Tiết</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Giỏ Hàng -->
+    <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Giỏ Hàng</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Tên sản phẩm</th>
+                                <th>Giá</th>
+                                <th>Số lượng</th>
+                                <th>Thành tiền</th>
+                                <th>Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cart-items">
+                            <!-- Các sản phẩm sẽ được thêm vào đây -->
+                        </tbody>
+                    </table>
+                    <h5>Tổng cộng: <span id="total-price">0</span> VND</h5>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-danger" id="checkout-btn">Thanh Toán</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container my-4">
+        <h2 style="color: rgb(236, 193, 217); font-weight: bold; text-align: center;" class="mb-4 text-outline">Nhận Voucher</h2>
+        <div class="row voucher-section">
+            <!-- First Voucher -->
+            <div class="col-md-3">
+                <div class="voucher-card voucher-blue">
+                    <p>Freeship 50k<br><small>cho đơn online từ 0K</small></p>
+                    <p>Tất cả sản phẩm<br><small>[Thứ 6 - Siêu hội Voucher]Thứ 2 Freeship mọi đơn</small></p>
+                    <p><small>Chỉ ngày 04/11</small></p>
+                    <button class="btn btn-primary btn-voucher">Lấy mã</button>
+                </div>
+            </div>
+
+            <!-- Second Voucher -->
+            <div class="col-md-3">
+                <div class="voucher-card voucher-pink">
+                    <p>100,000đ<br><small>cho đơn online từ 1999K</small></p>
+                    <p>Tất cả sản phẩm<br><small>[Thứ 6 - Siêu hội Voucher] Trừ kem chống nắng </small></p>
+                    <p><small>Chỉ ngày 08/11</small></p>
+                    <button class="btn btn-danger btn-voucher">Lấy mã</button>
+                </div>
+            </div>
+
+            <!-- Third Voucher -->
+            <div class="col-md-3">
+                <div class="voucher-card voucher-orange">
+                    <p>50,000đ<br><small>cho đơn online từ 999K</small></p>
+                    <p>Tất cả sản phẩm<br><small>[Thứ 6 - Siêu hội Voucher] Trừ kem dưỡng da</small></p>
+                    <p><small>Chỉ ngày 08/11</small></p>
+                    <button class="btn btn-warning btn-voucher">Lấy mã</button>
+                </div>
+            </div>
+
+            <!-- Fourth Voucher -->
+            <div class="col-md-3">
+                <div class="voucher-card voucher-pink">
+                    <p>50,000đ<br><small>cho đơn online từ 999K</small></p>
+                    <p>Tất cả sản phẩm<br><small>[Thứ 6 - Siêu hội Voucher] Trừ sửa rửa mặt</small></p>
+                    <p><small>Chỉ ngày 08/11</small></p>
+                    <button class="btn btn-danger btn-voucher">Lấy mã</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contact-a">
+        <div class="conact-all">
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer text-white text-center py-4 footer-background">
+        <div class="container text-footer">
+            <span>© 2024 OHui Shop - Bản quyền thuộc về Trần Dũ Bảo.</span>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script>
+        $(document).ready(function () {
+            var cart = [];
+            var totalPrice = 0;
+
+            // Kiểm tra trạng thái đăng nhập
+            if (localStorage.getItem('loggedIn') === 'true') {
+                var userName = localStorage.getItem('userName');
+                $('#login-item').addClass('d-none');
+                $('#register-item').addClass('d-none');
+                $('#logout-item').removeClass('d-none');
+                $('#user-info').removeClass('d-none');
+                $('#change-password-item').removeClass('d-none');
+                $('#user-name').text(userName);
+            }
+
+            // Đăng xuất
+            $('#logout-btn').click(function () {
+                localStorage.removeItem('loggedIn');
+                localStorage.removeItem('userName');
+                localStorage.removeItem('email');
+                window.location.reload();
+            });
+
+            // Thêm sản phẩm vào giỏ hàng
+            $('.add-to-cart').click(function () {
+                var productId = $(this).data('id');
+                var productName = $(this).data('name');
+                var productPrice = parseInt($(this).data('price'));
+
+                var existingProduct = cart.find(product => product.id === productId);
+
+                if (existingProduct) {
+                    existingProduct.quantity += 1;
+                } else {
+                    cart.push({ id: productId, name: productName, price: productPrice, quantity: 1 });
+                }
+
+                totalPrice += productPrice;
+                $('#cart-count').text(cart.length);
+                alert('Sản phẩm đã được thêm vào giỏ hàng!');
+            });
+
+
+            // Hiển thị giỏ hàng
+            $('#cartModal').on('show.bs.modal', function () {
+                var cartItems = $('#cart-items');
+                cartItems.empty();
+                cart.forEach(function (item, index) {
+                    var totalItemPrice = item.price * item.quantity;
+                    cartItems.append(`
+                        <tr>
+                            <td>${item.name}</td>
+                            <td>${item.price} VND</td>
+                            <td><input type="number" class="form-control quantity-input" data-index="${index}" value="${item.quantity}" min="1"></td>
+                            <td>${totalItemPrice} VND</td>
+                            <td><button class="btn btn-danger btn-sm remove-item" data-index="${index}">Xóa</button></td>
+                        </tr>
+                    `);
+                });
+                $('#total-price').text(totalPrice);
+            });
+
+            // Cập nhật số lượng sản phẩm
+            $(document).on('change', '.quantity-input', function () {
+                var index = $(this).data('index');
+                var newQuantity = parseInt($(this).val());
+                var item = cart[index];
+
+                if (newQuantity <= 0) {
+                    alert('Số lượng không hợp lệ.');
+                    return;
+                }
+
+                totalPrice -= item.price * item.quantity;
+                item.quantity = newQuantity;
+                totalPrice += item.price * item.quantity;
+                $('#total-price').text(totalPrice);
+            });
+
+            // Xóa sản phẩm khỏi giỏ hàng
+            $(document).on('click', '.remove-item', function () {
+                var index = $(this).data('index');
+                var item = cart[index];
+                totalPrice -= item.price * item.quantity;
+                cart.splice(index, 1);
+                $('#cart-count').text(cart.length);
+                $('#total-price').text(totalPrice);
+                $(this).closest('tr').remove();
+            });
+
+            // Thanh toán
+            $('#checkout-btn').click(function () {
+                if (cart.length === 0) {
+                    alert('Giỏ hàng của bạn đang trống.');
+                } else {
+                    // Lưu giỏ hàng vào localStorage để chuyển sang trang thanh toán
+                    localStorage.setItem('cart', JSON.stringify(cart));
+
+                    // Chuyển hướng đến trang thanh toán
+                    window.location.href = '../html/check.html';
+                }
+            });
+            // Xem chi tiết
+            $('.view-details').click(function () {
+            var productId = $(this).data('id');
+            window.location.href = '../html/product_detail.html?id=' + productId;
+            });
+        });
+    </script>
+</body>
+</html>
